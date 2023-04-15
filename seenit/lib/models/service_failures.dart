@@ -1,0 +1,5 @@
+enum ServiceFailure{
+  NeteworkFailure,
+  ParsingFailure,
+  
+}
