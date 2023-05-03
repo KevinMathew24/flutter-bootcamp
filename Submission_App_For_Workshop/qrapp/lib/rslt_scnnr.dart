@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class ResultScreen extends StatelessWidget {
   final String code;
@@ -11,23 +12,23 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {
-          closeScreen();
-          Navigator.pop(context);
-        }),
-        icon: const Icon(
-          Icons.arrow_back,
+        leading: IconButton(
+          onPressed: () {
+            closeScreen();
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: Colors.black87,
         ),
-      ),
-      centerTitle: true,
-      title: const Text(
-        "Place QR code in the area",
-        style: TextStyle(
-          color: Colors.black87,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 1,
+        centerTitle: true,
+        title: const Text(
+          "QR Scanner",
+          style: TextStyle(
+            color: Colors.black87,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+          ),
         ),
       ),
       body: Padding(
