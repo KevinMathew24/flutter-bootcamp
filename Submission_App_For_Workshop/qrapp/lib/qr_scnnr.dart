@@ -34,7 +34,7 @@ class _QrScannerState extends State<QrScanner> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "Place QR code in the area",
+          "QR Scanner",
           style: TextStyle(
             color: Colors.black87,
             fontSize: 18,
@@ -78,15 +78,15 @@ class _QrScannerState extends State<QrScanner> {
               flex: 4,
               child: QRView(
                 key: qrKey,
-                onQRViewCreated: (QRViewController) {},
+                onQRViewCreated: _onQRViewCreated,
               ),
             ),
             Expanded(
               child: Container(
                 alignment: Alignment.center,
-                child: const Text(
-                  "Developed by Kevin & Justin",
-                  style: TextStyle(
+                child: Text(
+                  "Scanned Code: $scannedCode",
+                  style: const TextStyle(
                     color: Colors.black87,
                     fontSize: 18,
                     letterSpacing: 1,
@@ -97,6 +97,19 @@ class _QrScannerState extends State<QrScanner> {
           ],
         ),
       ),
+    );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen(
+      (scanData) {
+        setState(
+          () {
+            scannedCode = scanData.code!;
+          },
+        );
+      },
     );
   }
 }
