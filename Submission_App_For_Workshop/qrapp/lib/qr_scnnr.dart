@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:qrapp/rslt_scnnr.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 const bgcolor = Color(0xfffafafa);
@@ -22,6 +21,7 @@ class _QrScannerState extends State<QrScanner> {
     isScanCompleted = false;
   }
 
+  @override
   void dispose() {
     controller?.dispose();
     super.dispose();
